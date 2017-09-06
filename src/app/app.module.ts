@@ -12,6 +12,8 @@ import { UserListComponent } from './user-list/user-list.component';
 import { ListService } from 'app/service/list.service';
 import { routedComponents } from 'app/routing/routing';
 import { UserDetailComponent } from './user-detail/user-detail.component';
+import { LoginComponent } from './login/login.component';
+import { CanloginGuard } from 'app/canlogin.guard';
 
 @NgModule({
   declarations: [
@@ -20,7 +22,8 @@ import { UserDetailComponent } from './user-detail/user-detail.component';
     SearchByPipe,
     UserDataComponent,
     UserListComponent,
-    UserDetailComponent
+    UserDetailComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
@@ -28,7 +31,7 @@ import { UserDetailComponent } from './user-detail/user-detail.component';
     HttpModule,
     routedComponents
   ],
-  providers: [DropDownService, ListService],
+  providers: [DropDownService, ListService,  CanloginGuard],
   bootstrap: [RootComponent]
 })
 export class AppModule { }
