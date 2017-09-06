@@ -3,18 +3,32 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 
-import { AppComponent } from './app.component';
+import { RootComponent } from './app.component';
+import { DropDownService } from 'app/service/drop-down.service';
+import { CapitalizePipe } from './capitalize.pipe';
+import { SearchByPipe } from './search-by.pipe';
+import { UserDataComponent } from './user-data/user-data.component';
+import { UserListComponent } from './user-list/user-list.component';
+import { ListService } from 'app/service/list.service';
+import { routedComponents } from 'app/routing/routing';
+import { UserDetailComponent } from './user-detail/user-detail.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    RootComponent,
+    CapitalizePipe,
+    SearchByPipe,
+    UserDataComponent,
+    UserListComponent,
+    UserDetailComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
-    HttpModule
+    HttpModule,
+    routedComponents
   ],
-  providers: [],
-  bootstrap: [AppComponent]
+  providers: [DropDownService, ListService],
+  bootstrap: [RootComponent]
 })
 export class AppModule { }
